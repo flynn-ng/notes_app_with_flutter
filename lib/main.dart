@@ -49,9 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
   _retrieveNotes() async {
     notes = [];
     List response = json.decode((await client.get(retrieveUrl)).body);
-    response.forEach((element) {
+    for (var element in response) {
       notes.add(Note.fromMap(element));
-    });
+    }
     setState(() {});
   }
 
